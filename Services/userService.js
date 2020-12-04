@@ -53,9 +53,9 @@ const userService={
         let response={};
         try{
 
-            const user=await userModel.findOne(email);
+            const user=await userModel.findOne({email});
             if(!user){
-                response.msg="Wrong email or password";
+                return response.msg="Wrong email or password";
             }
             else{
                 let compare=await encrypt.check(password,user.password);
@@ -64,11 +64,12 @@ const userService={
                     console.log(response);
                     return response.msg=token;
                 }
-                response.msg="Wrong email or password";
+                return response.msg="Wrong email or password";
             }
 
         }
         catch(err){
+            console.log(err)
             return response.err;
         }
     }

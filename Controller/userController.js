@@ -27,6 +27,8 @@ const userController={
         let email=req.body.email;
         let password=req.body.password;
 
+        console.log(email,password)
+
         if(!email){
             return res.json({"message":"email not found"}).status(500);
         }
