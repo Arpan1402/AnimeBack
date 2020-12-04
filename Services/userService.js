@@ -21,24 +21,29 @@ const userService={
             else{
 
                 password = await encrypt.enc(password);
+                console.log(password)
 
                 let newUser=userModel({
                     email,
                     password
                 });
+                console.log(newUser)
 
                 let nUser=await newUser.save();
+                console.log(nUser)
 
                 if(nUser.id){
                     response.msg="user registered";
                 }
             }
+            console.log('service'+response);
 
             return response;
 
         }
 
         catch(err){
+            console.log(err)
             return response.err;
         }
     },
@@ -56,6 +61,7 @@ const userService={
                 let compare=await encrypt.check(password,user.password);
                 if(compare){
                     let token=jwt.createToken(user);
+                    console.log(response);
                     return response.msg=token;
                 }
                 response.msg="Wrong email or password";

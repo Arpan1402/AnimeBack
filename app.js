@@ -10,8 +10,8 @@ Connection();
 
 app.use(express.json());
 
-user.post('/signup',userRouter);
-user.post('/login',userRouter);
+app.post('/signup',userRouter);
+app.post('/login',userRouter);
 
 
 

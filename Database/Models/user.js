@@ -12,19 +12,15 @@ let userSchema=new mongoose.Schema({
     personalInfo:{
         fname:{
             type:String,
-            required:true
         },
         lname:{
             type:String,
-            required:true
         },
         gender:{
             type:String,
-            required:true
         },
         dob:{
             type:Date,
-            required:true
         },
     },
     animeInfo:{

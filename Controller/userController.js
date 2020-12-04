@@ -16,7 +16,8 @@ const userController={
         }
         else{
 
-            message=await userService.signup(email,password);
+            let message=await userService.signup(email,password);
+            console.log('Controller'+message);
             return res.json(message);
         }
     },
@@ -35,6 +36,7 @@ const userController={
         else{
 
             message=await userService.login(email,password);
+            console.log('Controller'+message);
             return res.json(message);
         }
     }
